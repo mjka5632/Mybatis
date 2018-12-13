@@ -4,7 +4,6 @@
 .idea/compiler.xml
 .idea/misc.xml
 .idea/workspace.xml
-pom.xml
 target/
 /.idea/vcs.xml
 /.idea/uiDesigner.xml
