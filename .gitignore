@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+.idea/.name
+.idea/compiler.xml
+.idea/misc.xml
+.idea/workspace.xml
+pom.xml
+target/
+/.idea/vcs.xml
+/.idea/uiDesigner.xml
