@@ -1,5 +1,6 @@
 
 package entity;
+
 /**
  * @Author: mrt
  * @Description:
@@ -15,6 +16,7 @@ public class Article {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -22,6 +24,7 @@ public class Article {
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -29,6 +32,7 @@ public class Article {
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -36,6 +40,7 @@ public class Article {
     public String getContent() {
         return content;
     }
+
     public void setContent(String content) {
         this.content = content;
     }

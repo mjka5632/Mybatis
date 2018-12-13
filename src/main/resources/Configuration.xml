@@ -5,6 +5,8 @@
     <!-- mybatis别名定义 -->
     <typeAliases>
         <typeAlias alias="User" type="entity.User"/>
+        <typeAlias alias="Article" type="entity.Article"/>
+        <typeAlias alias="Blog" type="entity.Blog"/>
     </typeAliases>
 
     <environments default="development">
@@ -12,15 +14,17 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis" />
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=false"/>
                 <property name="username" value="root"/>
-                <property name="password" value="admin"/>
+                <property name="password" value="root12345"/>
             </dataSource>
         </environment>
     </environments>
 
     <!-- mybatis的mapper文件，每个xml配置文件对应一个接口 -->
     <mappers>
-        <mapper resource="mapper/xml/User.xml"/>
+        <mapper resource="User.xml"/>
+        <mapper resource="Blog.xml"/>
+        <mapper resource="Article.xml"/>
     </mappers>
 </configuration>
