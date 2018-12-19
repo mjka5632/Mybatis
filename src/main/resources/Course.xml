@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.CourseMapper">
+
+    <insert id="addCourse">
+        insert into course (kc_id, kc_name)
+        values (#{id}, #{name})
+    </insert>
+
+    <select id="getCourseById" resultType="Course">
+        select kc_id id,kc_name name
+        from course
+        where kc_id = #{id}
+    </select>
+
+    <update id="updateCourse">
+        update course
+        set kc_id=#{id},
+            kc_name=#{name}
+            where kc_id = #{id}
+    </update>
+    <delete id="deleteCourseById">
+        delete
+        from course
+        where kc_id = #{id}
+    </delete>
+</mapper>

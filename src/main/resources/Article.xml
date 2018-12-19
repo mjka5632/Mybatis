@@ -22,7 +22,7 @@
     </resultMap>
 
     <!-- 使用别名来映射匹配 -->
-    <select id="getUserArticles" parameterType="int" resultMap="articleResultMap">
+    <select id="getUserArticles" parameterType="int" resultMap="articleResultMap" >
         select user.id user_id,user.userName user_userName,user.userAddress user_userAddress,
                article.id article_id,article.title article_title,article.content article_content
         from user,article

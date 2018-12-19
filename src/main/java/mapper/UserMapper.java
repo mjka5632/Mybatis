@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface UserMapper {
     public User selectUserByID(int id);
+    public Integer count1();
 
     public List<User> selectUsersByName(String userName);
 

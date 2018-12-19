@@ -7,14 +7,18 @@
         <typeAlias alias="User" type="entity.User"/>
         <typeAlias alias="Article" type="entity.Article"/>
         <typeAlias alias="Blog" type="entity.Blog"/>
+        <typeAlias alias="Class" type="entity.Class"/>
+        <typeAlias alias="Student" type="entity.Student"/>
+        <typeAlias alias="Score" type="entity.Score"/>
+        <typeAlias alias="Course" type="entity.Course"/>
     </typeAliases>
 
-    <environments default="development">
-        <environment id="development">
+    <environments default="ab">
+        <environment id="ab">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=false"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root12345"/>
             </dataSource>
@@ -26,5 +30,9 @@
         <mapper resource="User.xml"/>
         <mapper resource="Blog.xml"/>
         <mapper resource="Article.xml"/>
+        <mapper resource="Class.xml"/>
+        <mapper resource="Student.xml"/>
+        <mapper resource="Score.xml"/>
+        <mapper resource="Course.xml"/>
     </mappers>
 </configuration>

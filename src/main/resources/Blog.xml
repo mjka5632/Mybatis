@@ -22,11 +22,11 @@
         <id property="id" column="blog_id" />
         <result property="title" column="blog_title" />
         <!-- 将article list属性映射到collection -->
-        <collection property="articles" ofType="Article" resultMap="articleResultMap"/>
+        <collection property="articles" ofType="Class" resultMap="articleResultMap"/>
     </resultMap>
 
     <!-- select语句 -->
-    <select id="getBlogByID" parameterType="int" resultMap="blogResultMap">
+    <select id="getBlogByID" parameterType="int" resultMap="blogResultMap" >
         select user.id user_id,user.userName user_userName,user.userAddress user_userAddress,
                article.id article_id,article.title article_title,article.content article_content,
                blog.id blog_id, blog.title blog_title

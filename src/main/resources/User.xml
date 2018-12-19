@@ -6,7 +6,14 @@
 
     <!-- select语句 -->
     <select id="selectUserByID" parameterType="int" resultType="User">
-        select * from `user` where user.id = #{id}
+        select *
+        from `user`
+        where user.id = #{id}
+    </select>
+
+    <select id="count1" resultType="int">
+        select count(*)
+        from `user`
     </select>
 
     <!-- 定义的resultMap，可以解决类的属性名和数据库列名不一致的问题-->
@@ -23,23 +30,31 @@
     </select> -->
 
     <select id="selectUsersByName" parameterType="string" resultType="User">
-        select * from user where user.userName = #{userName}
+        select *
+        from user
+        where user.userName = #{userName}
     </select>
 
     <!--执行增加操作的SQL语句。id和parameterType分别与IUserOperation接口中的addUser方法的名字和参数类型一致。
     useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到User的id属性-->
     <insert id="addUser" parameterType="User"
             useGeneratedKeys="true" keyProperty="id">
-        insert into user(userName,userAge,userAddress)
-             values(#{userName},#{userAge},#{userAddress})
+        insert into user(userName, userAge, userAddress)
+        values (#{userName}, #{userAge}, #{userAddress})
     </insert>
 
-    <update id="updateUser" parameterType="User" >
-        update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}
+    <update id="updateUser" parameterType="User">
+        update user
+        set userName=#{userName},
+            userAge=#{userAge},
+            userAddress=#{userAddress}
+        where id = #{id}
     </update>
 
     <delete id="deleteUser" parameterType="int">
-        delete from user where id=#{id}
+        delete
+        from user
+        where id = #{id}
     </delete>
 
 </mapper>

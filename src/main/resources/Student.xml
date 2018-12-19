@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.StudentMapper">
+
+    <insert id="addStudent">
+        insert into student (st_id, name, c_id)
+        values (#{id}, #{name}, #{cid})
+    </insert>
+
+    <select id="getStudentById" resultType="Student">
+        select st_id id,name,c_id cid
+        from student
+        where st_id = #{id}
+    </select>
+
+    <update id="updateStudent">
+        update student
+        set st_id=#{id},
+            name=#{name},
+            c_id=#{cid}
+        where st_id = #{id}
+    </update>
+    <delete id="deleteStudentById">
+        delete
+        from student
+        where st_id = #{id}
+    </delete>
+</mapper>

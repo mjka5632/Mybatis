@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ScoreMapper">
+
+    <insert id="addScore">
+        insert into score (st_id, kc_id, kc_score)
+        values (#{stid}, #{coid}, #{score})
+    </insert>
+
+    <select id="getScoreById" resultType="Score">
+        select st_id stid,kc_id coid,kc_score score
+        from score
+        where st_id = #{id}
+    </select>
+
+    <update id="updateScore">
+        update score
+        set st_id=#{stid},
+            kc_id=#{coid},
+            kc_score=#{score}
+        where st_id = #{stid}
+    </update>
+    <delete id="deleteScoreById">
+        delete
+        from score
+        where st_id = #{stid}
+    </delete>
+    <select id="question1" resultType="String">
+        SELECT kc_score
+        from score s
+        WHERE s.st_id = (SELECT st.st_id FROM student st WHERE st.name = #{name})
+          and s.kc_id = (SELECT co.kc_id FROM course co WHERE co.kc_name = '数学')
+    </select>
+
+    <select id="question2" resultType="Integer">
+        SELECT count(s.kc_id)
+        from score s
+        where s.st_id = (SELECT st.st_id FROM student st WHERE st.`name` = #{name})
+    </select>
+    <select id="question4" resultType="java.lang.Integer">
+        SELECT
+            avg(s.kc_score)
+        FROM
+            score s
+        WHERE
+                s.st_id IN
+                (SELECT s.st_id FROM student s WHERE s.c_id = (SELECT c_id FROM class c WHERE c.c_name = #{name}))
+          and
+            s.kc_id = 'K02'
+    </select>
+    <select id="question3" resultType="HashMap">
+        SELECT s.kc_score , c.kc_name
+        from score s,course c
+        where s.st_id=(SELECT st.st_id FROM student st WHERE st.`name`='王五')
+          and c.kc_id=s.kc_id
+    </select>
+
+</mapper>
